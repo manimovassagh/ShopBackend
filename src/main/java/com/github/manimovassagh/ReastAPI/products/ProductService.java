@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -12,7 +13,7 @@ public class ProductService {
     ProductRepository productRepository;
 
 
-    public List<Product> findAllProducts() {
+    public Iterable<Product> findAllProducts() {
         return productRepository.findAll();
     }
 
@@ -28,7 +29,7 @@ public class ProductService {
         return products;
     }
 
-    public List<Product> getProductsByBranchID(Long BranchId){
-        return productRepository.findByBranchId(BranchId);
+    public Optional<Product> getByBranchID(Long branchId){
+        return productRepository.findById(branchId);
     }
 }

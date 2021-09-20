@@ -4,19 +4,19 @@ package com.github.manimovassagh.ReastAPI.barnches;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BranchService {
     @Autowired
     private BranchRepository branchRepository;
 
-    public List<Branch> findAllBranches() {
+    public Iterable<Branch> findAllBranches() {
         return branchRepository.findAll();
     }
 
-    public Branch findOneBranch(Long id) {
-        return branchRepository.getById(id);
+    public Optional<Branch> findOneBranch(Long id) {
+        return branchRepository.findById(id);
     }
 
     public Branch addNewBranch(Branch branch) {
