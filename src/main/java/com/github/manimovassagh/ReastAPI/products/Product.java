@@ -13,17 +13,11 @@ public class Product {
     private Long id;
     private String productName;
     private float productPrice;
-    @OneToMany
-    private Branch productBranch;
+
+    @ManyToOne
+    private Product product;
 
     public Product() {
-    }
-
-    public Product(Long id, String productName, float productPrice, Branch productBranch) {
-        this.id = id;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productBranch = productBranch;
     }
 
     public Long getId() {
@@ -50,21 +44,12 @@ public class Product {
         this.productPrice = productPrice;
     }
 
-    public Branch getProductBranch() {
-        return productBranch;
-    }
-
-    public void setProductBranch(Branch productBranch) {
-        this.productBranch = productBranch;
-    }
-
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
-                ", productBranch=" + productBranch +
                 '}';
     }
 }

@@ -1,9 +1,9 @@
 package com.github.manimovassagh.ReastAPI.barnches;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.github.manimovassagh.ReastAPI.products.Product;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Branch {
@@ -12,6 +12,8 @@ public class Branch {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String branchName;
+
+
 
     public Branch() {
     }
