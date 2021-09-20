@@ -22,7 +22,7 @@ public class Branch {
         this.id = id;
         this.branchName = branchName;
     }
-
+//just
     public Long getId() {
         return id;
     }
