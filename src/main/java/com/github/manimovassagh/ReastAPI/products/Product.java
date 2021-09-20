@@ -12,22 +12,20 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-   // @JsonProperty("ProductName")
     private String productName;
-   // @JsonProperty("ProductPrice")
     private float productPrice;
 
     @ManyToOne
-    private Branch branch;
-
-    public Product() {
-    }
+    Branch branch;
 
     public Product(Long id, String productName, float productPrice, Long branchId) {
         this.id = id;
         this.productName = productName;
         this.productPrice = productPrice;
-        this.branch = new Branch(branchId,"");
+        this.branch = new Branch(branchId, "");
+    }
+
+    public Product() {
     }
 
     public Long getId() {

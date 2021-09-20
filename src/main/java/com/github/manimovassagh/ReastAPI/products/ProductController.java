@@ -11,20 +11,25 @@ public class ProductController {
     @Autowired
     ProductService service;
 
-    @GetMapping("/products")
+    @GetMapping("/branches/{branchId}/products")
     public List<Product> findAllProducts(){
         return service.findAllProducts();
     }
 
     @RequestMapping("/branches/{branchId}/products")
-    public List<Product> getAllProducts( @PathVariable String branchId) {
-        return service.getAllProducts(branchId);
+    public List<Product> getAllProducts( @PathVariable Long branchId) {
+        return service.getProductsByBranchID(branchId);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/branches/{branchId}/products")
-    public void addProduct(@RequestBody Product product, @PathVariable String branchId) {
+    public void addProduct(@RequestBody Product product, @PathVariable Long branchId) {
         service.addProduct(product);
     }
+
+
+
+
+
 }
 
 

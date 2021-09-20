@@ -11,8 +11,9 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public List<Product> findAllProducts(){
-       return productRepository.findAll();
+
+    public List<Product> findAllProducts() {
+        return productRepository.findAll();
     }
 
 
@@ -21,11 +22,13 @@ public class ProductService {
     }
 
 
-    public List<Product> getAllProducts(String id) {
+    public List<Product> getAllProducts(Long productId) {
         List<Product> products = new ArrayList<>();
-        //ignore this warning for know, it is ok
-        productRepository.findByBranchId(id).addAll(products);
-        //forEach(courses::add);
+        productRepository.findByBranchId(productId).addAll(products);
         return products;
+    }
+
+    public List<Product> getProductsByBranchID(Long BranchId){
+        return productRepository.findByBranchId(BranchId);
     }
 }
