@@ -15,7 +15,14 @@ public class Product {
     private float productPrice;
 
     @ManyToOne
-    private Product product;
+    private Branch branch;
+
+    public Product(Long id, String productName, float productPrice, Long branchId) {
+        this.id = id;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.branch = new Branch(branchId,"");
+    }
 
     public Product() {
     }
