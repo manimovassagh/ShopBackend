@@ -21,7 +21,7 @@ public class ProductService {
     }
 
 
-    public List<Product> getAllProducts(Long id) {
+    public List<Product> getAllProducts(String id) {
         List<Product> products = new ArrayList<>();
         //ignore this warning for know, it is ok
         productRepository.findByBranchId(id).addAll(products);

@@ -17,7 +17,7 @@ public class ProductController {
     }
 
     @RequestMapping("/branches/{branchId}/products")
-    public List<Product> getAllProducts( @PathVariable Long branchId) {
+    public List<Product> getAllProducts( @PathVariable String branchId) {
         return service.getAllProducts(branchId);
     }
 

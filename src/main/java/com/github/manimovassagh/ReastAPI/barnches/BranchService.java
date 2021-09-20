@@ -9,26 +9,26 @@ import java.util.List;
 @Service
 public class BranchService {
     @Autowired
-    private BranchRepository topicRepository;
+    private BranchRepository branchRepository;
 
     public List<Branch> findAllBranches() {
-        return topicRepository.findAll();
+        return branchRepository.findAll();
     }
 
     public Branch findOneBranch(Long id) {
-        return topicRepository.getById(id);
+        return branchRepository.getById(id);
     }
 
     public Branch addNewBranch(Branch branch) {
-        return topicRepository.save(branch);
+        return branchRepository.save(branch);
     }
 
     public void deleteBranch(Long id) {
-        topicRepository.deleteById(id);
+        branchRepository.deleteById(id);
     }
 
     public void deleteAllBranches() {
-        topicRepository.deleteAll();
+        branchRepository.deleteAll();
     }
 
 

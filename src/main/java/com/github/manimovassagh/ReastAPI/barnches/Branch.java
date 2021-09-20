@@ -1,9 +1,11 @@
 package com.github.manimovassagh.ReastAPI.barnches;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.manimovassagh.ReastAPI.products.Product;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 public class Branch {
@@ -11,9 +13,9 @@ public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+
     private String branchName;
-
-
 
     public Branch() {
     }
@@ -22,7 +24,7 @@ public class Branch {
         this.id = id;
         this.branchName = branchName;
     }
-//just
+
     public Long getId() {
         return id;
     }
@@ -42,7 +44,7 @@ public class Branch {
     @Override
     public String toString() {
         return "Branch{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", branchName='" + branchName + '\'' +
                 '}';
     }

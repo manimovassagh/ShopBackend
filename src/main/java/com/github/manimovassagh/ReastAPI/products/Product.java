@@ -1,6 +1,7 @@
 package com.github.manimovassagh.ReastAPI.products;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.manimovassagh.ReastAPI.barnches.Branch;
 
 import javax.persistence.*;
@@ -11,20 +12,22 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+   // @JsonProperty("ProductName")
     private String productName;
+   // @JsonProperty("ProductPrice")
     private float productPrice;
 
     @ManyToOne
     private Branch branch;
+
+    public Product() {
+    }
 
     public Product(Long id, String productName, float productPrice, Long branchId) {
         this.id = id;
         this.productName = productName;
         this.productPrice = productPrice;
         this.branch = new Branch(branchId,"");
-    }
-
-    public Product() {
     }
 
     public Long getId() {
@@ -51,12 +54,21 @@ public class Product {
         this.productPrice = productPrice;
     }
 
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
+                ", branch=" + branch +
                 '}';
     }
 }
